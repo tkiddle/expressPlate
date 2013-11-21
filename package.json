@@ -1,0 +1,26 @@
+{
+  "name": "expressPlate",
+  "description": "A boiler plate for node.js and express projects",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "maintainers": [
+    {
+      "name": "Thomas Kiddle",
+      "email": "tom@lazypixel.co.uk",
+      "web": "lazypixel.co.uk"
+    }
+  ],
+  "dependencies": {
+    "jade": "latest",
+    "express": "latest",
+    "node-sass": "latest"
+  },
+  "repository": [
+    {
+      "type": "git",
+      "url": "https://github.com/tkiddle/expressPlate.git"
+    }
+  ]
+}
