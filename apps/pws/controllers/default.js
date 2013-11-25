@@ -1,9 +1,11 @@
-exports.init = function (app) {
+module.exports = function (app, config) {
 
-	app.get('/', function (req, res) {
+	app.get('/', function (request, response) {
+		response.send('home page from pws');
+	});
 
-		res.send('HOMEPAGE');
-
+	app.get('/home', function (request, response) {
+		response.send('home page from pws - HOME');
 	});
 
 }

@@ -4,12 +4,12 @@
 	"path": "/"
   },
   {
-	"directory": "admin",
-	"path": "/admin"
-  },
-  {
 	"directory": "blog",
 	"path": "/blog"
+  },
+  {
+	"directory": "admin",
+	"path": "/admin"
   }
 ]
 

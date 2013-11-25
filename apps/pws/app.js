@@ -1,11 +1,13 @@
 module.exports = function (config) {
 
 	var express = require('express'),
-		pws = express();
+		bootstrap = require(config.paths.core.bootstrap),
+		app = express(),
+		path = require('path');
 
-	pws.get('/', function (request, response) {
-		response.send('home page from pws');
-	});
+	// require( path.join(config.paths.apps.root , 'pws', 'controllers/default') ) (app,config);
 
-	return pws;
+
+
+	return app;
 };
