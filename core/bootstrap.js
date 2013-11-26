@@ -2,49 +2,34 @@ var path = require('path'),
 	bootstrap = {};
 
 
-bootstrap.loadMounts = function (app, config) {
 
-	var paths = config.paths,
-		mounts = config.mounts,
-		mounted = [],
-		mount;
+bootstrap.sortMounts = function (mounts) {
 
-	for ( var i = 0, len = mounts.length; i < len; i++ ) {
+	var rootApp;
 
-		mount = mounts[i];
+	for (var i = 0, len = mounts.length; i < len; i++) {
+		
+		if (len > 1) {
+			
+			if(mounts[i].path === '/') {
+					
+				rootApp = mounts.splice(i, 1);
 
-		mounted.push(mount.directory);
+				mounts.push(rootApp);
 
-		try  {
-
-			app.use( mount.path, require( path.join(paths.apps.root , mount.directory, 'app') ) (config) );
-
-
-		} catch (e) {
-
-			mounted.splice(mounted.indexOf(mount.directory));
-
-			console.info(e);
+			}
 
 		}
-		
 
-		
 	}
 
-
-this.loadControllers(app, congif, mounted, paths);
-
-
-};
-
-
-bootstrap.loadControllers = function (app, congif, mount, paths) {
-
-	//require( path.join(paths.apps.root , mount.directory, 'controllers/default') ) (app,config);
-	console.log('Woo');
+	console.log(mounts);
 
 }
+
+
+
+
 
 module.exports = bootstrap;
 

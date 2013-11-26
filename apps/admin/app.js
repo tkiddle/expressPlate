@@ -1,15 +1,14 @@
 module.exports = function (config) {
 
 	var express = require('express'),
-		admin = express();
+		bootstrap = require(config.paths.core.bootstrap),
+		app = express(),
+		path = require('path');
 
-	
-	admin.get('/', function (request, response) {
+		//require( path.join(config.paths.apps.root , 'admin', 'controllers/default') ) (app,config);
 
-		response.send('Admin Page');
+		bootstrap.loadControllers(app, config);
 		
-	});
 
-
-	return admin;
+	return app;
 }

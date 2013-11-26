@@ -5,9 +5,11 @@ module.exports = function (config) {
 		app = express(),
 		path = require('path');
 
-	// require( path.join(config.paths.apps.root , 'pws', 'controllers/default') ) (app,config);
+		//require( path.join(config.paths.apps.root , 'pws', 'controllers/default') ) (app,config);
+
+		bootstrap.loadControllers(app, config);
 
 
 
 	return app;
-};
+}

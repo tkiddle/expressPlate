@@ -1,11 +1,15 @@
 module.exports = function (config) {
 
 	var express = require('express'),
-		pws = express();
+		admin = express();
 
-	pws.get('/', function (request, response) {
-		response.send('Blog Pages');
+	
+	admin.get('/', function (request, response) {
+
+		response.send('Admin Page');
+		
 	});
 
-	return pws;
-};
+
+	return admin;
+}

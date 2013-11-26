@@ -1,5 +1,9 @@
 [
   {
+	"directory": "admin",
+	"path": "/admin"
+  },
+  {
 	"directory": "pws",
 	"path": "/"
   },
@@ -8,8 +12,8 @@
 	"path": "/blog"
   },
   {
-	"directory": "admin",
-	"path": "/admin"
+	"directory": "lists",
+	"path": "/lists"
   }
 ]
 
