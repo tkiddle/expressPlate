@@ -1,5 +1,4 @@
-module.exports = function (app, config) {
-	
+module.exports = function (app) {	
 
 	app.get('/home', function (request, response) {
 		response.send('home page from pws - HOME');
@@ -8,6 +7,5 @@ module.exports = function (app, config) {
 	app.get('/', function (request, response) {
 		response.send('home page from pws');
 	});
-
 
 }

@@ -2,14 +2,11 @@ module.exports = function (config) {
 
 	var express = require('express'),
 		bootstrap = require(config.paths.core.bootstrap),
-		app = express(),
-		path = require('path');
+		app = express();
 
-		//require( path.join(config.paths.apps.root , 'pws', 'controllers/default') ) (app,config);
-
-		bootstrap.loadControllers(app, config);
-
-
+		//Require all routes  from default.js
+		bootstrap.getControllers(app, config);
 
 	return app;
+
 }
