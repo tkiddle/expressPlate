@@ -26,7 +26,6 @@ User Guide
 
 * npm install
 * nodemon server.js
-* 
 
 ---------------------------------------------
 
