@@ -14,14 +14,15 @@ Features
 * Bootstrap methods for including all mongoose models from a single directory
 * Bootstrap methods for including all controllers/routes from a single directory
 
-User Guide
-----------
-
-* npm install
-* nodemon server.js
-* 
 
 Coming Soon
 -----------
 
 * Shared directory, allowing you to share code modules and data from multiple apps
+
+
+User Guide
+----------
+
+* npm install
+* nodemon server.js
