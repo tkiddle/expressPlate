@@ -3,4 +3,25 @@ expressPlate
 
 A boiletplate for NodeJS and Express projects
 
-Based on https://github.com/alextiley/node-mvc-simple so a huge shout out to Alex Tiley for the awesome advice and great examples.
+
+Features
+--------
+* Run multiple sub-apps under one express http server i.e.localhost/public-site, localhost/admin
+* Mapped context paths and app folders
+* Environment specific configuration
+* Environment specific configuration for individual apps
+* Configuration object containing path structures and environment specific config
+* Bootstrap methods for including all mongoose models from a single directory
+* Bootstrap methods for including all controllers/routes from a single directory
+
+User Guide
+----------
+
+* npm install
+* nodemon server.js
+* 
+
+Coming Soon
+-----------
+
+* Shared directory, allowing you to share code modules and data from multiple apps
