@@ -1,7 +1,7 @@
 expressPlate
 ============
 
-An MVC boilerplate for NodeJS and Express projects
+An MVC boilerplate for NodeJS and Express projects.
 
 
 Features
