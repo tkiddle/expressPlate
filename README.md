@@ -18,7 +18,7 @@ Features
 Coming Soon
 -----------
 
-* Shared directory, allowing you to share code modules and data from multiple apps
+* Shared directory, allowing you to share code and data from multiple apps
 
 
 User Guide
