@@ -1,11 +1,13 @@
 module.exports = function (app) {	
 
-	app.get('/home', function (request, response) {
-		response.send('home page from pws - HOME');
+	app.get('/', function (request, response) {
+		response.send('DEFAULT route for PWS');
 	});
 
-	app.get('/', function (request, response) {
-		response.send('home page from pws');
+	app.get('/contact', function (request, response) {
+		response.send('CONTACT route for PWS');
 	});
+
+	console.log('Initialised PWS Controllers');
 
 }

@@ -8,4 +8,5 @@ module.exports = function (config) {
 		bootstrap.getControllers(app, config);
 
 	return app;
+
 }

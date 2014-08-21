@@ -4,16 +4,12 @@
 	"path": "/admin"
   },
   {
-	"directory": "pws",
-	"path": "/"
-  },
-  {
 	"directory": "blog",
 	"path": "/blog"
   },
   {
-	"directory": "lists",
-	"path": "/lists"
+	"directory": "pws",
+	"path": "/"
   }
 ]
 

@@ -1,5 +1,6 @@
 var	env = process.env.NODE_ENV || 'development',
 	express = require('express'),
+	app = express(),
 	path = require('path'),
 	config = {},
 	bootstrap;
@@ -20,6 +21,6 @@ config.mounts = require(config.paths.apps.mounts);
 bootstrap = require(config.paths.core.bootstrap);
 
 //Mount and '.use' all apps in the apps dir
-bootstrap.getMounts(express(), config);
+bootstrap.getMounts(app, config);
 
 

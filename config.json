@@ -1,6 +1,6 @@
 {
 	"development": {
-	    "port" : "80"
+	    "port" : "8080"
 	}, 
 	"staging": {
 	    "port" : "3333"
