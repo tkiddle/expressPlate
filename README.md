@@ -11,14 +11,15 @@ Features
 * Environment specific configuration
 * Environment specific configuration for individual apps
 * Configuration object containing path structures and environment specific config
-* Bootstrap methods for including all mongoose models from a single directory
-* Bootstrap methods for including all controllers/routes from a single directory
 
 
 Coming Soon
 -----------
 
+* Asset support
+* Jade template support
 * Shared directory, allowing you to share code and data from multiple apps
+* Individual and shared DB support, prefered choice MongoDB
 
 
 User Guide
