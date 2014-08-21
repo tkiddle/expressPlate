@@ -1,4 +1,4 @@
-expressPlate
+Express Plate
 ============
 
 An MVC boilerplate for NodeJS and Express projects.
