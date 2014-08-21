@@ -1,31 +1,18 @@
-expressPlate
+expressPlate - App directory
 ============
 
 An MVC boilerplate for NodeJS and Express projects.
 
 
-Features
+User guide
 --------
-* Run multiple sub-apps under one express http server i.e.localhost/public-site, localhost/admin
-* Mapped context paths and app folders
-* Environment specific configuration
-* Environment specific configuration for individual apps
-* Configuration object containing path structures and environment specific config
-* Bootstrap methods for including all mongoose models from a single directory
-* Bootstrap methods for including all controllers/routes from a single directory
+**The default directory is not mounted when the app is initialised, the default directory act's as a starting point/blueprint for all new sub-apps.**
 
+* To create a new sub app:
 
-Coming Soon
------------
+1.  Duplicate and rename the 'default' directory.
+2.  Add the new directory to the mounts.json config file. 
 
-* Shared directory, allowing you to share code and data from multiple apps
-
-
-User Guide
-----------
-
-* npm install
-* nodemon server.js
 
 ---------------------------------------------
 
