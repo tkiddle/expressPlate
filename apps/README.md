@@ -1,9 +1,6 @@
 expressPlate - App directory
 ============
 
-An MVC boilerplate for NodeJS and Express projects.
-
-
 User guide
 --------
 **The default directory is not mounted when the app is initialised, the default directory act's as a starting point/blueprint for all new sub-apps.**
