@@ -6,8 +6,3 @@ To create a new sub app:
 
 1.  Duplicate and rename the 'default' directory.
 2.  Add the new directory to the mounts.json config file. 
-
-
----------------------------------------------
-
-**N.B. This is a work in progress!**
