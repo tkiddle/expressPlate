@@ -1,6 +1,3 @@
-expressPlate - App directory
-============
-
 User guide
 --------
 *The default directory is not mounted when the app is initialised, the default directory act's as a starting point/blueprint for all new sub-apps.*
