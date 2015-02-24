@@ -1,5 +1,5 @@
 var path = require('path'),
-	bootstrap = {};
+		bootstrap = {};
 
 bootstrap.temps = {
 
@@ -9,7 +9,7 @@ bootstrap.temps = {
 
 };
 
-//Put the '/' path at the last pos in the array
+// Put the '/' path at the last pos in the array
 bootstrap.sortMounts = function (mounts) {
 
 	var rootApp;
@@ -33,7 +33,7 @@ bootstrap.sortMounts = function (mounts) {
 
 }
 
-//Get the mounts and 'USE' them
+// Get the mounts and 'USE' them
 bootstrap.getMounts = function (app, config) {
 
 	var mounts = bootstrap.sortMounts(config.mounts);		
@@ -57,7 +57,7 @@ bootstrap.getMounts = function (app, config) {
 	app.listen(config.port);
 }
 
-//Iterate over verified mounts and  require each default.js
+// Iterate over verified mounts and  require each default.js
 bootstrap.getControllers = function (app, config)  {
 		
 	for (var len = bootstrap.temps.verified.length; bootstrap.temps.count < len; bootstrap.temps.count++) {

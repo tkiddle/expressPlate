@@ -1,4 +1,4 @@
-//Paths for the core application
+// Paths for the core application
 module.exports = function (baseDir) {
 
 	var paths = {};
