@@ -11,7 +11,7 @@ config = require(__dirname + '/config.json')[env];
 // Augments the config obj with env : development
 config.env = env;
 
-// Require the paths function 
+// Require the paths function
 config.paths = require( path.join(__dirname, '/core/paths') )(__dirname);
 
 // Using our paths require the mounts.json

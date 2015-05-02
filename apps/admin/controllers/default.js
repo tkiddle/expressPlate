@@ -1,13 +1,14 @@
-module.exports = function (app) {
-	
-	app.get('/', function (request, response) {
-		response.send('DEFAULT route for ADMIN app');
-	});
+module.exports = function (app, config) {
 
-	app.get('/user', function (request, response) {
-		response.send('USER route for ADMIN app');
-	});
+  app.get('/', function (request, response) {
+    //res.send('DEFAULT route for ADMIN app');
+    response.render('test');
+  });
 
-	console.log('Initialised ADMIN Controllers');
+  app.get('/user', function (request, response) {
+    response.send('USER route for ADMIN app');
+  });
+
+  console.log('Initialised ADMIN Controllers');
 
 }
