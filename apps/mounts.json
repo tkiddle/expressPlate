@@ -1,15 +1,15 @@
 [
-  {
+	{
 	"directory": "admin",
 	"path": "/admin"
-  },
-  {
+	},
+	{
 	"directory": "blog",
 	"path": "/blog"
-  },
-  {
+	},
+	{
 	"directory": "pws",
 	"path": "/"
-  }
+	}
 ]
 

@@ -1,11 +1,11 @@
 {
 	"development": {
-	    "port" : "8080"
-	}, 
+			"port" : "8080"
+	},
 	"staging": {
-	    "port" : "3333"
-	}, 
+			"port" : "3333"
+	},
 	"production": {
-	    "port" : "8080"
+			"port" : "8080"
 	}
 }
