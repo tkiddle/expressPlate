@@ -1,39 +1,34 @@
 var fs = require('fs'),
-    path = require('path');
+		path = require('path');
 
 module.exports = function(app, config) {
 
-  // Split this code up in to two functions
-  // Return one function
+	app.use( function(request, response, next) {
 
-  app.use( function(request, response, next) {
+		var _render = response.render,
+				appViewsPath = app.settings.views,
+				sharedViewsPath = path.join(config.paths.apps.root, 'shared/views/'),
+				stats, viewTplPath, viewPath;
 
-    var _render = response.render,
-        appViewsPath = app.settings.views,
-        sharedViewsPath = path.join(config.paths.apps.root, 'shared/views/'),
-        stats, viewTplPath, viewPath;
+		response.render = function( view, options, fn ) {
 
-    response.render = function( view, options, fn ) {
+			viewTplPath = path.join(appViewsPath, view + '.jade');
 
-      viewTplPath = path.join(appViewsPath, view + '.jade');
+			try {
 
-      try {
+				fs.statSync(viewTplPath).isFile();
+				viewPath = view;
 
-        fs.statSync(viewTplPath).isFile();
-        viewPath = view;
+			}
+			catch(e) {
 
-      }
-      catch(e) {
+				viewPath = path.join(sharedViewsPath, view + '.jade');
 
-        viewPath = path.join(sharedViewsPath, view + '.jade');
+			}
+			_render.call( this, viewPath, options, fn );
+		}
 
-      }
-      _render.call( this, viewPath, options, fn );
-    }
+		next();
+	});
 
-    next();
-  });
-
-}
-
-
+};

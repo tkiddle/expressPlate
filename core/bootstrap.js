@@ -1,79 +1,101 @@
 var path = require('path'),
-    bootstrap = {},
-    viewOverride;
+		bootstrap = {},
+		viewOverride;
 
 bootstrap.temps = {
 
-  verified : [],
-  mounted : [],
-  count : 0
+	verified : [],
+	mounted : [],
+	count : 0
 
 };
 
-// Put the '/' path at the last pos in the array
+// Put the '/' path at the last pos in the array - We do this to avoid any
+// Overwriting of the routes within routes and controllers.
 bootstrap.sortMounts = function (mounts) {
 
-  var rootApp;
+	var rootApp;
 
-  for (var i = 0, len = mounts.length; i < len; i++) {
+	for (var i = 0, len = mounts.length; i < len; i++) {
 
-    if (len > 1) {
+		if (len > 1) {
 
-      if(mounts[i].path === '/') {
+			if(mounts[i].path === '/') {
 
-        rootApp = mounts.splice(i, 1);
-        mounts.push(rootApp[0]);
+				rootApp = mounts.splice(i, 1);
+				mounts.push(rootApp[0]);
 
-      }
+			}
 
-    }
+		}
 
-  }
+	}
 
-  return mounts;
+	return mounts;
 
 };
 
 // Get the mounts and 'USE' them
 bootstrap.getMounts = function (app, config) {
 
-  var mounts = bootstrap.sortMounts(config.mounts);
+	var mounts = bootstrap.sortMounts(config.mounts);
 
-  for (var i = 0,  len = mounts.length; i < len; i++) {
+	for (var i = 0,  len = mounts.length; i < len; i++) {
 
-    try {
+		try {
 
-      bootstrap.temps.verified.push(mounts[i].directory);
-      app.use(mounts[i].path, require( path.join(config.paths.apps.root, mounts[i].directory, 'app') ) (config, app) );
+			// Create app specific object within the config.paths object to hold app paths
+			config.paths.apps[mounts[i].directory] = {};
+			config.paths.apps[mounts[i].directory].root = path.join(config.paths.apps.root, mounts[i].directory);
+
+			bootstrap.temps.verified.push(mounts[i].directory);
+			app.use(mounts[i].path, require( path.join(config.paths.apps.root, mounts[i].directory, 'app') ) (mounts[i].directory, config) );
 
 
-    } catch (e) {
+		} catch (e) {
 
-      rmIndex = bootstrap.temps.verified.indexOf(mounts[i].directory);
-      bootstrap.temps.verified.splice(rmIndex, 1);
+			rmIndex = bootstrap.temps.verified.indexOf(mounts[i].directory);
+			bootstrap.temps.verified.splice(rmIndex, 1);
 
-    }
+			delete config.paths.apps[mounts[i].directory]
 
-  }
+		}
 
-  app.listen(config.port);
+	}
+
+	app.listen(config.port);
 };
 
-// Iterate over verified mounts and  require each default.js
-bootstrap.getControllers = function (app, config)  {
+// Iterate over verified mounts and require each default.js
+bootstrap.getControllers = function (config)  {
 
-  for (var len = bootstrap.temps.verified.length; bootstrap.temps.count < len; bootstrap.temps.count++) {
+	for (var len = bootstrap.temps.verified.length; bootstrap.temps.count < len; bootstrap.temps.count++) {
 
-    bootstrap.temps.mounted.push(bootstrap.temps.verified[bootstrap.temps.count]);
-    require( path.join(config.paths.apps.root, bootstrap.temps.verified[bootstrap.temps.count], 'controllers', 'default') )(app, config);
-  }
+		bootstrap.temps.mounted.push(bootstrap.temps.verified[bootstrap.temps.count]);
+		require( path.join(config.paths.apps.root, bootstrap.temps.verified[bootstrap.temps.count], 'controllers', 'default') )(this, config);
+
+	}
 
 };
 
-// Call viewOverride and getControllers in appInit
-bootstrap.initSubApp = function(app, config) {
+bootstrap.setAppConfig = function (config) {
 
-  require( path.join(config.paths.core.root, 'viewOverride') )(app, config);
+	this.locals.config = {};
+	this.locals.config.paths = {};
+	this.locals.config.paths.all = config.paths;
+	this.locals.config.paths.active = config.paths.apps[this.locals.appId];
+
+};
+
+// Configure app controllers, viewOverride and appName
+bootstrap.initSubApp = function(app, appId, config) {
+
+	app.locals.appId = appId;
+
+	require( path.join(config.paths.core.root, 'viewOverride') )(app, config);
+
+	bootstrap.getControllers.call(app, config);
+	bootstrap.setAppConfig.call(app, config);
 
 };
 
