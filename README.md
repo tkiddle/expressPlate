@@ -28,6 +28,35 @@ User Guide
 * npm install
 * nodemon server.js
 
+App Locals
+----------
+
+Each app comes configured with a a paths object within app.locals. This contains
+paths to your app/shared resources.
+
+paths: {
+	shared: {
+		root: '/Users/lazyPixel/Sites/expressPlate/apps/shared/',
+		views: '/Users/lazyPixel/Sites/expressPlate/apps/shared/views'
+	},
+	admin: {
+		root: '/Users/lazyPixel/Sites/expressPlate/apps/admin',
+		views: '/Users/lazyPixel/Sites/expressPlate/apps/admin/views'
+	},
+	blog: {
+		root: '/Users/lazyPixel/Sites/expressPlate/apps/blog',
+		views: '/Users/lazyPixel/Sites/expressPlate/apps/blog/views'
+	},
+	pws: {
+		root: '/Users/lazyPixel/Sites/expressPlate/apps/pws',
+		views: '/Users/lazyPixel/Sites/expressPlate/apps/pws/views'
+	},
+	active: {
+		root: '/Users/lazyPixel/Sites/expressPlate/apps/pws',
+		views: '/Users/lazyPixel/Sites/expressPlate/apps/pws/views'
+	 }
+}
+
 ---------------------------------------------
 
 **N.B. This is a work in progress!**

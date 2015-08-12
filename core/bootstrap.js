@@ -78,12 +78,36 @@ bootstrap.getControllers = function (config)  {
 
 };
 
+// IMPORTANT: This needs to be made async?
 bootstrap.setAppConfig = function (config) {
 
-	this.locals.config = {};
-	this.locals.config.paths = {};
-	this.locals.config.paths.all = config.paths;
-	this.locals.config.paths.active = config.paths.apps[this.locals.appId];
+	var appPaths = config.paths.apps;
+
+	this.locals.paths = {};
+
+	for (var key in appPaths) {
+
+		if(key != 'root' && key != 'mounts') {
+
+			if(!this.locals.paths.hasOwnProperty(key)) {
+
+				this.locals.paths[key] = {};
+
+			}
+
+			this.locals.paths[key].root = key == 'shared' ? appPaths[key] : appPaths[key].root;
+			this.locals.paths[key].views = key == 'shared' ? appPaths[key] + 'views' : appPaths[key].root + '/views';
+		}
+
+			if(key === this.locals.appId) {
+				this.locals.paths.active = {};
+				this.locals.paths.active.root = appPaths[key].root;
+				this.locals.paths.active.views = appPaths[key].root + '/views';
+			}
+
+	}
+
+	console.log(this.locals);
 
 };
 
