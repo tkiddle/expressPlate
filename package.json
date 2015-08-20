@@ -1,26 +1,33 @@
 {
-	"name": "expressPlate",
-	"description": "A boiler plate for node.js and express projects",
-	"version": "0.1.0",
-	"engines": {
-		"node": ">= 0.10.0"
-	},
-	"maintainers": [
-		{
-			"name": "Thomas Kiddle",
-			"email": "tom@lazypixel.co.uk",
-			"web": "lazypixel.co.uk"
-		}
-	],
-	"dependencies": {
-		"express" : "~3.4.4",
-		"jade" : "~0.35.0",
-		"node-sass": "latest"
-	},
-	"repository": [
-		{
-			"type": "git",
-			"url": "https://github.com/tkiddle/expressPlate.git"
-		}
-	]
+  "name": "expressPlate",
+  "description": "A boiler plate for node.js and express projects",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "maintainers": [
+    {
+      "name": "Thomas Kiddle",
+      "email": "tom@lazypixel.co.uk",
+      "web": "lazypixel.co.uk"
+    }
+  ],
+  "dependencies": {
+    "express": "~3.4.4",
+    "jade": "~0.35.0",
+    "node-sass": "latest"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-compass": "^1.0.3",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "repository": [
+    {
+      "type": "git",
+      "url": "https://github.com/tkiddle/expressPlate.git"
+    }
+  ]
 }
