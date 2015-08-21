@@ -1,9 +1,11 @@
 var	env = process.env.NODE_ENV || 'development',
-	express = require('express'),
-	app = express(),
-	path = require('path'),
-	config = {},
-	bootstrap;
+		express = require('express'),
+		app = express(),
+		path = require('path'),
+		config = {},
+		bootstrap;
+
+app.use("/assets/css", express.static(__dirname + '/assets/css'));
 
 // Returns the config obj.development
 config = require(__dirname + '/config.json')[env];

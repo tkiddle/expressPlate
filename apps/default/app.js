@@ -7,6 +7,8 @@ module.exports = function (appId, config) {
 	app.set('view engine', 'jade');
 	app.set('views', __dirname + '/views');
 
+	app.use("/assets/css", express.static(__dirname + '/assets/css'));
+
 	bootstrap.initSubApp(app, appId, config);
 
 	return app;

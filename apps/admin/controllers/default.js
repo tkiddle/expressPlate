@@ -1,13 +1,13 @@
-module.exports = function (app, config) {
+module.exports = function (app) {
 
 	app.get('/', function (request, response) {
-		response.render('test');
+		response.render('home');
 	});
 
-	app.get('/user', function (request, response) {
-		response.send('USER route for ADMIN app');
+	app.get('/contact', function (request, response) {
+		response.send('CONTACT route for PWS');
 	});
 
-	console.log('Initialised ADMIN Controllers');
+	console.log('Initialised ' + app.locals.appId + ' Controllers');
 
 }
